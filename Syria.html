@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Web Tutorial</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <!--Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Passero+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho&effect=3d-float|3d">
+    <style>
+        body,
+        * {
+            box-sizing: border-box;
+        }
+
+        .video-background {
+            background: #000;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -99;
+        }
+
+        .video-foreground,
+        .video-background iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        #vidtop-content {
+            top: 0;
+            color: #fff;
+        }
+
+        .vid-info {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            padding: 1rem;
+            font-family: Microsoft JhengHei, sans-serif;
+            text-shadow: 1px 1px 1px #cccccc;
+        }
+
+        .vid-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 0;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        h2 {
+            margin-top: 5%;
+            margin-left: 20%;
+            color: #fff;
+            font-size: 2.5vh;
+            font-weight: 300;
+            font-family: Microsoft JhengHei, sans-serif;
+        }
+
+        .row .col align-self-center h1 {
+            margin-top: 5%;
+            margin-left: 20%;
+            color: #fff;
+            font-size: 4vh;
+            font-weight: 300;
+            font-family: Microsoft JhengHei, sans-serif;
+        }
+
+        #div1 {
+            background-image: url("assets/Syria.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #space1 {
+            background-image: url("assets/Syria.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+        .slideanimate {
+            visibility: hidden;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+
+        #story2 .row {
+            font-size: 25px;
+            font-family: Microsoft JhengHei, serif;
+        }
+
+        .story2-banner {
+            height: 25vh;
+            padding: 5vh;
+            background-color: rgba(5, 5, 5, 0.6);
+            color: white;
+            font-family: Microsoft JhengHei, serif;
+
+        }
+
+        .fa fa-caret-down {
+            position: sticky;
+            color: white;
+        }
+
+        .parallax1 {
+            background-image: url("assets/syriamap.png");
+            width: 100%;
+            min-height: 800px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax2 {
+            background-image: url("assets/turkeymap.png");
+            width: 100%;
+            min-height: 800px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .parallax3 {
+            background-image: url("assets/greecemap.png");
+            width: 100%;
+            min-height: 800px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .parallax4 {
+            background-image: url("assets/hungarymap.png");
+            width: 100%;
+            min-height: 800px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .parallax5 {
+            background-image: url("assets/germanmap.png");
+            width: 100%;
+            min-height: 800px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax6 {
+            background-image: url("assets/sweden.png");
+            width: 100%;
+            min-height: 800px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .slider_container-fluid {
+            margin: 3% auto;
+            width: 70%;
+            height: 70%;
+            position: relative;
+            border: 20px solid;
+            border-color: #fff;
+            border-bottom-width: 90vh;
+            box-shadow: #666 0 0 5px;
+
+        }
+
+        .slider_container-fluid div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+
+        .slider_container-fluid div {
+            -webkit-animation: round 25s linear infinite;
+            animation: round 25s linear infinite;
+        }
+
+        @-webkit-keyframes round {
+            4% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 0 - 1秒 淡入*/
+            }
+            20% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 1- 5秒靜止*/
+            }
+            24% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+                /* 5-6秒淡出*/
+            }
+        }
+
+        @keyframes round {
+            4% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 0 - 1秒 淡入*/
+            }
+            20% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 1- 5秒靜止*/
+            }
+            24% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+                /* 5-6秒淡出*/
+            }
+        }
+
+        .slider_container-fluid div:nth-child(5) {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+        }
+
+        .slider_container-fluid div:nth-child(4) {
+            -webkit-animation-delay: 5s;
+            animation-delay: 5s;
+        }
+
+        .slider_container-fluid div:nth-child(3) {
+            -webkit-animation-delay: 10s;
+            animation-delay: 10s;
+        }
+
+        .slider_container-fluid div:nth-child(2) {
+            -webkit-animation-delay: 15s;
+            animation-delay: 15s;
+        }
+
+        .slider_container-fluid div:nth-child(1) {
+            -webkit-animation-delay: 20s;
+            animation-delay: 20s;
+        }
+
+        #end .row {
+            font-size: 25px;
+            font-family: DFKai-sb;
+        }
+
+
+        .slider_container-fluid:hover div {
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+
+        @media (min-aspect-ratio: 16/9) {
+            .video-foreground {
+                height: 300%;
+                top: -100%;
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            .video-foreground {
+                width: 300%;
+                left: -100%;
+            }
+        }
+
+        @media all and (max-width: 600px) {
+            .vid-info {
+                width: 50%;
+                padding: .5rem;
+            }
+            .vid-info h1 {
+                margin-bottom: .2rem;
+            }
+        }
+
+        @media all and (max-width: 500px) {
+            .vid-info .acronym {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="video-background">
+            <div class="video-foreground">
+                <iframe id="video1" src="assets/Syrianwar.mp4" frameborder="0" allowfullscreen></iframe>
+
+            </div>
+        </div>
+
+        <div id="vidtop-content">
+            <div class="vid-info">
+                <h1>敘利亞&nbsp&nbsp難民的悲歌</h1>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="div0" class="container-fluid" style="width:100%;background: #666666;min-height:100vh;margin-top:100vh;">
+        <div class="row">
+            <div class="col align-self-left">
+                <h2>敘利亞，世界最古老文明發源地之一，同時也浸淫在基督教、伊斯蘭教奮起交鋒的長河中。<br><br/> 18世紀，法國將勢力伸進敘利亞。
+                    <br> 1946年，敘利亞宣告獨立前，境內一直有外國軍隊駐紮。
+                    <br> 1958年，敘利亞曾與埃及合併為阿拉伯聯合共和國，3年後敘利亞才成為獨立國家。
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col align-self-center">
+                <h1 class="slideanimate" style="margin-top: 10%;margin-left: 20%;color: #fff;font-size: 28px;font-family: Microsoft JhengHei, sans-serif; ">
+                    2011年，「阿拉伯之春」民主革命浪潮<br><br/> 阿薩德政府軍用坦克、大砲攻擊示威民眾
+                    <br> 部分政府軍起身反抗結成敘利亞自由軍（FSA）
+                    <br><br/> 兩者皆在敘利亞境內進行一連串內戰與轟炸……
+                </h1>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="div1" class="container-fluid innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img id="tank1" data-top=20 data-left=13 data-width=30 src="assets/tank1.png" class="dropshadow1" style="position:absolute;width:30%;top:20%;left:13%;">
+        <img id="tank2" data-top=21 data-left=57 data-width=30 src="assets/tank2.png" class="dropshadow1" style="position:absolute;width:30%;top:21%;left:57%;">
+        <img class="ISIS" data-top=50 src="assets/ISIS.png" style="position: absolute;width: 50%;top:50%; left: 27%;">
+    </div>
+
+    <div id="space1" class="container-fluid" style="background-color:rgba(0,0,0,0.5);height: 500px;position:relative;"></div>
+
+    <div id="story2">
+        <div>
+            <div class="parallax1 img-fluid">
+                <div class="text-center">
+                    <div class="story2-banner text-center">
+                        <h1>敘利亞難民移往歐洲境況</h1>
+                        <span class="fa fa-caret-down"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax1 img-fluid">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-md "></div>
+                        <div class="col-md-4 " style="background-color:ghostwhite;opacity: 0.8; ">
+                            <p>敘利亞<br> 截至2017年3月，逃離敘利亞的難民人數超過500萬人，另有630萬人在敘利亞境內流離失所，總計1,100多萬人飽受戰火的煎熬。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax2 " class="parallax2 img-fluid ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-md "></div>
+                        <div class="col-md-4 " style="background-color:ghostwhite;opacity: 0.8; ">
+                            <p>土耳其<br> 近三年，土耳其境內已經滯留超過三百萬的敘利亞難民，他們僅有少數能夠幸運的申請到難民營，其餘的只能棲身露宿街頭。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax3 img-fluid ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-md "></div>
+                        <div class="col-md-4 " style="background-color:ghostwhite;opacity: 0.8; ">
+                            <p>希臘<br> 希臘國會以169票對107票通過「歐盟-土耳其遣返方案」，同意遣返非法進入並滯留在希臘境內的移民（migrant）。第一波遣返行動正式啟動，202名不符庇護資格者被送回土耳其。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax4 img-fluid ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-md "></div>
+                        <div class="col-md-4 " style="background-color:ghostwhite;opacity: 0.8; ">
+                            <p>匈牙利<br> 2015年9月，匈牙利實施新法並動員防暴警察驅散依然滯留在塞爾維亞邊境的難民。 匈牙利政府於接壤塞爾維亞邊境修建了一道長達117公里的4米高圍牆，且加設尖刺鐵絲網。
+                                <br> 2015年10月全面關閉了接壤克羅地亞的邊境，以堵截難民非法闖關。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax5 img-fluid ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-md "></div>
+                        <div class="col-md-4 " style="background-color:ghostwhite;opacity: 0.8; ">
+                            <p>德國<br>德國總理梅克爾表示接收難民「不設上限」。德國估計，地方政府安置1名難民的成本在1萬2000至1萬3000歐元之間，當中包括申請庇護期間的住宿、三餐、醫療照護與每月143歐元的零用金。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax6 img-fluid ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-md "></div>
+                        <div class="col-md-4 " style="background-color:ghostwhite;opacity: 0.8; ">
+                            <p>瑞典<br>2014年約8萬1000人向瑞典尋求庇護，僅次於德國，其中以敘利亞難民最多。2015年11月起，瑞典政府收緊難民政策，不像以往通常可獲永久居民身分，大部分2015年抵達瑞典的難民，僅獲准暫時居留。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div id="story3">
+        <div class="container-fluid" style="background-color: black;">
+
+            <h1 style="text-align: center;font-family: Microsoft JhengHei, sans-serif; color:snow; position: relative;">真實世界中的他們</h1>
+
+
+        </div>
+
+        <div class="slider_container-fluid">
+            <div>
+                <img class="img-fluid" src="assets/1.jpg" alt="pure css3 slider" />
+                <span class="info"><h5 style=font-family:DFKai-sb;>難民乘船抵達希臘</h5></span>
+            </div>
+            <div>
+                <img class="img-fluid" src="assets/2.jpg" alt="pure css3 slider" />
+                <span class="info"><h5 style=font-family:DFKai-sb;>人們走到難民營登記等候</h5></span>
+            </div>
+            <div>
+                <img class="img-fluid" src="assets/3.jpg" alt="pure css3 slider" />
+                <span class="info"><h5 style=font-family:DFKai-sb;>位於敘利亞的城市阿勒坡(Aleppo)，處處可見逃難的人民</h5></span>
+            </div>
+            <div>
+                <img class="img-fluid" src="assets/4.jpg" alt="pure css3 slider" />
+                <span class="info"><h5 style=font-family:DFKai-sb;>男子從阿勒坡(Aleppo)建築物廢墟底下被救出，緊抱住他的小孩</h5></span>
+            </div>
+            <div>
+                <img class="img-fluid" src="assets/5.jpg" alt="pure css3 slider" />
+                <span class="info"><h5 style=font-family:DFKai-sb;>男子奮力搭上通往歐洲的列車</h5></span>
+            </div>
+
+        </div>
+    </div>
+    <div id="end" class="container-fluid" style="background-image: url(assets/end.jpg); background-position: center; position: relative;background-size: ; min-height: 800px;">
+        <div class="row">
+            <div class="col-md "></div>
+            <div class="col-md-9" style="position:absolute; top:20%;left:13%; background-color:ghostwhite;opacity: 0.8;">
+                現今，俄羅斯正式介入敘利亞內戰，<br>支持阿薩德的政府軍，自此對阿勒坡展開大規模空襲。<br><br/> 近期，美國也向敘利亞政府軍一座空軍基地，
+                <br>發射五十九枚「戰斧」巡弋飛彈，<br>制裁阿薩德日前使用化學武器襲擊平民。<br><br/> 敘利亞難民的悲歌，似乎仍無停息之日……
+            </div>
+
+            <div class="col-md "></div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="container text-center">
+            <p style="color: aliceblue">Copyright &copy; Design by PingTing 2018</p>
+        </div>
+        <div class="container text-center">
+            <p style="color: aliceblue">Retrieved from:&nbsp&nbsp udn/&nbsp&nbsp Initium Media/&nbsp&nbsp Worldpressphoto</p>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            var video = $("#video1").attr("src");
+            var pos_div0 = $("#div0").position().top;
+            var winh = $(window).height();
+            console.log(pos_div0);
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                console.log(scroll);
+                if (scroll > pos_div0 + winh) {
+                    //                    $('#video1').get(0).stopVideo();
+                    $("#video1").attr("src", "");
+                }
+
+                if (scroll == 0) {
+                    $("#video1").attr("src", video);
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            var div1_pos = $("#div1").offset().top;
+            var space1_pos = $("#space1").offset().top;
+            var winh = $(window).height();
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+                var div1_scrolled = scrolled - div1_pos;
+                if (div1_scrolled > 0 && scrolled < space1_pos - winh) {
+                    $("#tank1").css('left', ($("#tank1").data('left') + div1_scrolled * 0.005) + '%');
+                    $("#tank2").css('left', ($("#tank2").data('left') - div1_scrolled * 0.01) + '%');
+                    $("#tank1").css('top', ($("#tank1").data('top') + div1_scrolled * 0.06) + '%');
+                    $("#tank2").css('top', ($("#tank2").data('top') + div1_scrolled * 0.06) + '%');
+
+                    $("#tank1").css('width', ($("#tank1").data('width') + div1_scrolled * 0.01) + '%');
+                    $("#tank2").css('width', ($("#tank2").data('width') + div1_scrolled * 0.01) + '%');
+
+                    console.log("div1_pos:" + div1_pos +
+                        "\tscrolled:" + scrolled +
+                        "\tspace1:" + space1_pos);
+                }
+            });
+        });
+
+        $(function() {
+            $(window).scroll(function() {
+                $(".slideanimate").each(function() {
+                    var pos = $(this).offset().top;
+                    var winTop = $(window).scrollTop();
+                    var winh = $(window).height();
+                    if (pos - winh / 2 < winTop) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        });
+
+        $(window).scroll(function() {
+            var scrolled = $(window).scrollTop();
+            $(".ISIS").each(function() {
+                $(this).css('top', ($(this).data("top") - scrolled * .55 + scrolled) + 'px');
+            });
+        });
+    </script>
+</body>
+
+</html>
